@@ -16,7 +16,7 @@ final class CurrenciesResponse implements Response
     {
         $currenciesResponses = array_map(
             function (Currency $currency) {
-                return CurrencyResponse::fromBoard($currency);
+                return CurrencyResponse::fromCurrency($currency);
             },
             $currencies->all()
         );

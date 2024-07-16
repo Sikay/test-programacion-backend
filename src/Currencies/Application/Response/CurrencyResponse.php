@@ -8,15 +8,17 @@ use Hoyvoy\Currencies\Domain\Entity\Currency;
 class CurrencyResponse implements Response
 {
     public function __construct(
+        public readonly string $id,
         public readonly string $name,
         public readonly string $code,
         public readonly float $rateUsd
     ) {
     }
 
-    public static function fromBoard(Currency $currency): self
+    public static function fromCurrency(Currency $currency): self
     {
         return new self(
+            $currency->id->value(),
             $currency->name->value(),
             $currency->code->value(),
             $currency->rateUsd->value()

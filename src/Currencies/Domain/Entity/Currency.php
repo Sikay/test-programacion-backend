@@ -18,7 +18,7 @@ final class Currency
     {
     }
 
-    public static function fromPrimitives(string $id, string $code, string $name, float $rateUSD)
+    public static function fromPrimitives(string $id, string $name, string $code, float $rateUSD)
     {
         return new self(
             new CurrencyId($id),
