@@ -18,4 +18,11 @@ final class ExampleResponse implements Response
     {
         return $this->id;
     }
+
+    public function jsonSerialize(): mixed
+    {
+        return [
+            'id' => $this->id,
+        ];
+    }
 }
