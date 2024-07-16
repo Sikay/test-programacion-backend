@@ -15,7 +15,7 @@ return new class extends Migration
             $table->uuid('id')->primary();
             $table->string('code');
             $table->string('name');
-            $table->double('rate_USD');
+            $table->double('rate_usd');
             $table->timestamps();
         });
     }
