@@ -4,7 +4,7 @@ namespace Hoyvoy\Currencies\Application\Get;
 
 use Hoyvoy\Shared\Domain\Bus\Query\QueryHandler;
 use Hoyvoy\Currencies\Domain\Service\CurrencyFindAll;
-use Hoyvoy\Currencies\Application\Response\CurrenciesResponse;
+use Hoyvoy\Currencies\Application\Get\Response\CurrenciesResponse;
 
 class GetCurrenciesQueryHandler implements QueryHandler
 {

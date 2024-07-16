@@ -1,6 +1,6 @@
 <?php
 
-namespace Hoyvoy\Currencies\Application\Response;
+namespace Hoyvoy\Currencies\Application\Get\Response;
 
 use Hoyvoy\Shared\Domain\Bus\Query\Response;
 use Hoyvoy\Currencies\Domain\Entity\Currency;
