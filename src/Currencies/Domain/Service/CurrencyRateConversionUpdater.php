@@ -18,13 +18,13 @@ class CurrencyRateConversionUpdater
 
     public function __invoke(): void
     {
-        $currencyRateConversionDTO = $this->currencyRateConversionRepository->getRateConversion();
+        $currenciesRateConversion = $this->currencyRateConversionRepository->getRateConversion();
         $currencies = $this->currencyRepository->findAll();
 
-        foreach ($currencyRateConversionDTO->rates as $currencyCode => $rate) {
-            $currency = $currencies->findByCode($currencyCode);
+        foreach ($currenciesRateConversion->all() as $currencyRateConversion) {
+            $currency = $currencies->findByCode($currencyRateConversion->code->value());
             if (!empty($currency)) {
-                $currency->setRateUsd(new CurrencyRateUSD($rate['value']));
+                $currency->setRateUsd(new CurrencyRateUSD($currencyRateConversion->rate->value()));
             }
         }
 

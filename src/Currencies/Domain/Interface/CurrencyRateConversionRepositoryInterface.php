@@ -2,9 +2,9 @@
 
 namespace Hoyvoy\Currencies\Domain\Interface;
 
-use Hoyvoy\Currencies\Domain\DTO\CurrencyRateConversionDTO;
+use Hoyvoy\Currencies\Domain\Collection\CurrenciesRateConversion;
 
 interface CurrencyRateConversionRepositoryInterface
 {
-    public function getRateConversion(): CurrencyRateConversionDTO;
+    public function getRateConversion(): CurrenciesRateConversion;
 }

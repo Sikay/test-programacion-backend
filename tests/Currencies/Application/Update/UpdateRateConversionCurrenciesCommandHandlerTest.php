@@ -10,6 +10,7 @@ use Hoyvoy\Currencies\Infrastructure\Eloquent\CurrencyRepository;
 use Hoyvoy\Currencies\Domain\Service\CurrencyRateConversionUpdater;
 use Tests\Currencies\Infrastructure\Repository\CurrencyapiRepositoryFake;
 use Hoyvoy\Currencies\Application\Update\UpdateRateConversionCurrenciesCommand;
+use Hoyvoy\Currencies\Domain\Interface\CurrencyRateConversionRepositoryInterface;
 use Hoyvoy\Currencies\Application\Update\UpdateRateConversionCurrenciesCommandHandler;
 
 class UpdateRateConversionCurrenciesCommandHandlerTest extends TestCase

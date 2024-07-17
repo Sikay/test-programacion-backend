@@ -6,14 +6,14 @@ use Hoyvoy\Shared\Domain\Bus\Query\QueryHandler;
 use Hoyvoy\Currencies\Domain\Service\CurrencyFindByCode;
 use Hoyvoy\Currencies\Domain\ValueObject\CurrencyCode;
 use Hoyvoy\Shared\Domain\ValueObject\FloatValueObject;
-use Hoyvoy\Currencies\Domain\Service\CurrencyRateConversion;
+use Hoyvoy\Currencies\Domain\Service\CurrencyRateConversor;
 use Hoyvoy\Currencies\Application\RateConversion\Response\RateConversionResponse;
 
 class GetRateConversionCurrenciesQueryHandler implements QueryHandler
 {
     public function __construct(
         private CurrencyFindByCode     $currencyFinder,
-        private CurrencyRateConversion $currencyRateConversion
+        private CurrencyRateConversor $currencyRateConversion
     )
     {
     }

@@ -39,7 +39,7 @@ class CurrencyRepository implements CurrencyRepositoryInterface
         return $this->toDomain($eloquentCurrency->toArray());
     }
 
-    function toDomain(mixed $currency): Currency
+    private function toDomain(mixed $currency): Currency
     {
         return Currency::fromPrimitives(
             $currency['id'],

@@ -6,7 +6,7 @@ use Hoyvoy\Currencies\Domain\Entity\Currency;
 use Hoyvoy\Currencies\Domain\DTO\RateConversionDTO;
 use Hoyvoy\Shared\Domain\ValueObject\FloatValueObject;
 
-final class CurrencyRateConversion
+final class CurrencyRateConversor
 {
     public function __invoke(Currency $fromCurrency, Currency $toCurrency, FloatValueObject $amount): RateConversionDTO
     {

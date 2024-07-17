@@ -30,6 +30,7 @@ return [
     */
 
     'env' => env('APP_ENV', 'production'),
+    'currency_api_key' => env('CURRENCY_API_KEY'),
 
     /*
     |--------------------------------------------------------------------------
