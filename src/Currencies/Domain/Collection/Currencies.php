@@ -11,4 +11,15 @@ class Currencies extends AbstractCollection
     {
         return Currency::class;
     }
+
+    public function findByCode(string $currencyCode)
+    {
+        foreach ($this->all() as $currency) {
+            if ($currency->code->value() === $currencyCode) {
+                return $currency;
+            }
+        }
+
+        return null;
+    }
 }

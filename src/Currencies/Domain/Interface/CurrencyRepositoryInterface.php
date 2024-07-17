@@ -10,4 +10,6 @@ interface CurrencyRepositoryInterface
     public function findAll(): Currencies;
 
     public function findByCode(CurrencyCode $code);
+
+    public function saveAll(Currencies $currencies);
 }

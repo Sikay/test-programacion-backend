@@ -2,7 +2,6 @@
 
 namespace Hoyvoy\Currencies\Infrastructure\Eloquent;
 
-use Hoyvoy\Shared\Domain\ArrUtils;
 use Hoyvoy\Currencies\Domain\Entity\Currency;
 use Hoyvoy\Currencies\Domain\Collection\Currencies;
 use Hoyvoy\Currencies\Domain\ValueObject\CurrencyCode;
@@ -48,5 +47,19 @@ class CurrencyRepository implements CurrencyRepositoryInterface
             $currency['code'],
             $currency['rate_usd']
         );
+    }
+
+    public function saveAll(Currencies $currencies)
+    {
+        foreach ($currencies as $currency) {
+            $this->model->updateOrCreate(
+                ['id' => $currency->id()],
+                [
+                    'name' => $currency->name(),
+                    'code' => $currency->code(),
+                    'rate_usd' => $currency->rate()
+                ]
+            );
+        }
     }
 }

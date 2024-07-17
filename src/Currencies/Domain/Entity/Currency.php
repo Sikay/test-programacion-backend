@@ -13,7 +13,7 @@ final class Currency
         public readonly CurrencyId $id,
         public readonly CurrencyName $name,
         public readonly CurrencyCode $code,
-        public readonly CurrencyRateUSD $rateUsd,
+        public CurrencyRateUSD $rateUsd,
     )
     {
     }
@@ -26,5 +26,10 @@ final class Currency
             new CurrencyCode($code),
             new CurrencyRateUSD($rateUSD)
         );
+    }
+
+    public function setRateUsd(CurrencyRateUSD $rateUsd): void
+    {
+        $this->rateUsd = $rateUsd;
     }
 }

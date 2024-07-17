@@ -2,13 +2,14 @@
 
 namespace Hoyvoy\Currencies\Application\RateConversion;
 
+use Hoyvoy\Shared\Domain\Bus\Query\QueryHandler;
 use Hoyvoy\Currencies\Domain\Service\CurrencyFindByCode;
 use Hoyvoy\Currencies\Domain\ValueObject\CurrencyCode;
 use Hoyvoy\Shared\Domain\ValueObject\FloatValueObject;
 use Hoyvoy\Currencies\Domain\Service\CurrencyRateConversion;
 use Hoyvoy\Currencies\Application\RateConversion\Response\RateConversionResponse;
 
-class GetRateConversionCurrenciesQueryHandler
+class GetRateConversionCurrenciesQueryHandler implements QueryHandler
 {
     public function __construct(
         private CurrencyFindByCode     $currencyFinder,
