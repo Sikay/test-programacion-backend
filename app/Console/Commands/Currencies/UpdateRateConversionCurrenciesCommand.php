@@ -4,6 +4,7 @@ namespace App\Console\Commands\Currencies;
 
 use Illuminate\Console\Command;
 use Hoyvoy\Shared\Domain\Bus\Command\CommandBus;
+use Hoyvoy\Currencies\Application\Update\UpdateRateConversionCurrenciesCommand as UpdateRateConversionCommand;
 
 class UpdateRateConversionCurrenciesCommand extends Command
 {
@@ -26,7 +27,7 @@ class UpdateRateConversionCurrenciesCommand extends Command
      */
     public function handle()
     {
-        $command = new UpdateRateConversionCurrenciesCommand();
+        $command = new UpdateRateConversionCommand();
         app(CommandBus::class)->dispatch($command);
         return self::SUCCESS;
     }

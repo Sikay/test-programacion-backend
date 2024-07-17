@@ -2,6 +2,8 @@
 
 namespace Hoyvoy\Currencies\Infrastructure\Bindings;
 
+use Hoyvoy\Currencies\Infrastructure\Email\EmailRepository;
+use Hoyvoy\Currencies\Domain\Interface\EmailRepositoryInterface;
 use Hoyvoy\Currencies\Infrastructure\Eloquent\CurrencyRepository;
 use Hoyvoy\Currencies\Domain\Interface\CurrencyRepositoryInterface;
 use Hoyvoy\Currencies\Infrastructure\CurrencyRate\CurrencyapiRepository;
@@ -14,6 +16,7 @@ class CurrenciesRegisterBindings
         return [
             CurrencyRepositoryInterface::class => CurrencyRepository::class,
             CurrencyRateConversionRepositoryInterface::class => CurrencyapiRepository::class,
+            EmailRepositoryInterface::class => EmailRepository::class,
         ];
     }
 }
