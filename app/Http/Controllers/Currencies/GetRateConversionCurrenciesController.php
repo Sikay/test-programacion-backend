@@ -19,6 +19,13 @@ class GetRateConversionCurrenciesController extends ApiController
         $from = $request->get('from');
         $to = $request->get('to');
         $amount = $request->get('amount');
+
+        if (empty($from) || empty($to) || empty($amount)) {
+            return new JsonResponse([
+                'error' => 'The fields from, to and amount are required',
+            ], JsonResponse::HTTP_BAD_REQUEST);
+        }
+
         $rateConversionCurrency = $this->queryBus->ask(
             new GetRateConversionCurrenciesQuery(
                 $from,
