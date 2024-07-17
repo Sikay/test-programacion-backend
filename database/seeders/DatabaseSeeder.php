@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Hoyvoy\Currencies\Infrastructure\Eloquent\CurrencyModel;
 
 class DatabaseSeeder extends Seeder
 {
@@ -12,11 +13,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // \App\Models\User::factory(10)->create();
-
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        CurrencyModel::factory(['code' => 'EUR'])->create();
+        CurrencyModel::factory(['code' => 'USD'])->create();
+        CurrencyModel::factory(['code' => 'JPY'])->create();
+        CurrencyModel::factory(['code' => 'GBP'])->create();
     }
 }
