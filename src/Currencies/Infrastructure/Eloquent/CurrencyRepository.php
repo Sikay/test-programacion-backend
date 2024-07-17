@@ -51,15 +51,12 @@ class CurrencyRepository implements CurrencyRepositoryInterface
 
     public function saveAll(Currencies $currencies)
     {
-        foreach ($currencies as $currency) {
-            $this->model->updateOrCreate(
-                ['id' => $currency->id()],
-                [
-                    'name' => $currency->name(),
-                    'code' => $currency->code(),
-                    'rate_usd' => $currency->rate()
-                ]
-            );
+        foreach ($currencies->all() as $currency) {
+            $model = $this->model->find($currency->id->value());
+            $model->name = $currency->name->value();
+            $model->code = $currency->code->value();
+            $model->rate_usd = $currency->rateUsd->value();
+            $model->save();
         }
     }
 }

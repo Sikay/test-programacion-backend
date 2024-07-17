@@ -30,7 +30,6 @@ final class Currency
 
     public function setRateUsd(CurrencyRateUSD $rateUsd): void
     {
-
         $this->rateUsd = $rateUsd;
     }
 }
