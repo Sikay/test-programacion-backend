@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Hoyvoy\Currencies\Infrastructure\Bindings\CurrenciesRegisterBindings;
+use Hoyvoy\Currencies\Application\Subscriber\SendEmailUpdateCurrenciesSubscriber;
 
 class RegisterBindingsServiceProvider extends ServiceProvider
 {
@@ -23,11 +24,6 @@ class RegisterBindingsServiceProvider extends ServiceProvider
                 $this->app->singleton($key, $value);
             }
         }
-
-        $this->app->tag(
-            SendEmailUpdateCurrenciesSubscriber::class,
-            'domain_event_subscriber'
-        );
     }
 
     /**

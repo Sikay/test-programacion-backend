@@ -16,7 +16,7 @@ return new class extends Migration
             $table->uuid('fk_currency_id');
             $table->string('code');
             $table->string('name');
-            $table->double('rate_USD');
+            $table->double('rate_usd');
             $table->timestamps();
 
             $table->foreign('fk_currency_id')
