@@ -4,6 +4,7 @@ namespace Hoyvoy\Currencies\Infrastructure\Email;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\RequestException;
+use Hoyvoy\Currencies\Domain\DTO\EmailDTO;
 use Hoyvoy\Currencies\Domain\Exception\EmailException;
 use Hoyvoy\Currencies\Domain\Interface\EmailRepositoryInterface;
 
@@ -14,7 +15,7 @@ class MailtrapEmailRepository implements EmailRepositoryInterface
     ) {
     }
 
-    public function sendEmail(string $to, string $subject, string $body): void
+    public function sendEmail(EmailDTO $emailDTO): void
     {
         try {
 
@@ -24,10 +25,10 @@ class MailtrapEmailRepository implements EmailRepositoryInterface
                     "email" => config('mail.from.address'),
                 ],
                 "to" => [
-                    ["email" => $to]
+                    ["email" => $emailDTO->to]
                 ],
-                "subject" => $subject,
-                "text" => $body,
+                "subject" => $emailDTO->subject,
+                "text" => $emailDTO->body,
             ];
 
             $this->client->request('POST', $url, [

@@ -33,7 +33,7 @@ class UpdateRateConversionCurrenciesCommandHandlerTest extends TestCase
         $currencyRepository->method('findAll')->willReturn($currencies);
 
         $eventBus = $this->createMock(EventBus::class);
-        $eventBus->expects(self::once())->method('publish');
+        $eventBus->expects(self::exactly(2))->method('publish');
 
         $command = new UpdateRateConversionCurrenciesCommand();
         $service = new CurrencyRateUpdater(new CurrencyapiRepositoryFake(), $currencyRepository, $eventBus);

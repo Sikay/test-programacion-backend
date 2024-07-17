@@ -2,7 +2,9 @@
 
 namespace Hoyvoy\Currencies\Domain\Interface;
 
+use Hoyvoy\Currencies\Domain\DTO\EmailDTO;
+
 interface EmailRepositoryInterface
 {
-    public function sendEmail(string $to, string $subject, string $body): void;
+    public function sendEmail(EmailDTO $emailDTO): void;
 }

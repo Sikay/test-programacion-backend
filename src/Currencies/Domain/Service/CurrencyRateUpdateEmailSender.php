@@ -2,6 +2,7 @@
 
 namespace Hoyvoy\Currencies\Domain\Service;
 
+use Hoyvoy\Currencies\Domain\DTO\EmailDTO;
 use Hoyvoy\Currencies\Domain\Collection\Currencies;
 use Hoyvoy\Currencies\Domain\Interface\EmailRepositoryInterface;
 
@@ -22,9 +23,11 @@ class CurrencyRateUpdateEmailSender
         }
 
         $this->emailRepository->sendEmail(
-            self::EMAIL_A_NOTIFICAR,
-            self::MESSAGE_CURRENCIES_RATE_UPDATE,
-            $body
+            new EmailDTO(
+                self::EMAIL_A_NOTIFICAR,
+                self::MESSAGE_CURRENCIES_RATE_UPDATE,
+                $body
+            )
         );
     }
 }
