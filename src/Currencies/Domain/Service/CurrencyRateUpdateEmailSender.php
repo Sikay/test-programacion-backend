@@ -16,9 +16,8 @@ class CurrencyRateUpdateEmailSender
         $body = 'prueba';
 
         $this->emailRepository->sendEmail(
-//            'cambio@moneda.es',
-            'pedrohdezmora.trabajo@gmail.com',
-            'from@example.com',
+            'cambio@moneda.es',
+            'mailtrap@example.com',
             'Currencies Rate Update',
             $body
         );
