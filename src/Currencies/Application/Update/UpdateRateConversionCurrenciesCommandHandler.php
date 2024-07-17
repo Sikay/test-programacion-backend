@@ -3,11 +3,11 @@
 namespace Hoyvoy\Currencies\Application\Update;
 
 use Hoyvoy\Shared\Domain\Bus\Command\CommandHandler;
-use Hoyvoy\Currencies\Domain\Service\CurrencyRateConversionUpdater;
+use Hoyvoy\Currencies\Domain\Service\CurrencyRateUpdater;
 
 class UpdateRateConversionCurrenciesCommandHandler implements CommandHandler
 {
-    public function __construct(private CurrencyRateConversionUpdater $currencyRateConversionUpdater)
+    public function __construct(private CurrencyRateUpdater $currencyRateConversionUpdater)
     {
     }
 

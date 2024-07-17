@@ -14,7 +14,7 @@ abstract class DomainEvent
     private string $occurredAt;
 
     public function __construct(
-        private string $aggregateId,
+        private ?string $aggregateId,
         string $eventId = null,
         string $occurredAt = null,
     ) {

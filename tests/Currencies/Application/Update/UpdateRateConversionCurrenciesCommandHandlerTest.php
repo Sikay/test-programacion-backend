@@ -3,11 +3,12 @@
 namespace Tests\Currencies\Application\Update;
 
 use Tests\TestCase;
+use Hoyvoy\Shared\Domain\Bus\Event\EventBus;
 use Hoyvoy\Currencies\Domain\Entity\Currency;
 use Hoyvoy\Currencies\Domain\Collection\Currencies;
 use Hoyvoy\Currencies\Infrastructure\Eloquent\CurrencyModel;
 use Hoyvoy\Currencies\Infrastructure\Eloquent\CurrencyRepository;
-use Hoyvoy\Currencies\Domain\Service\CurrencyRateConversionUpdater;
+use Hoyvoy\Currencies\Domain\Service\CurrencyRateUpdater;
 use Tests\Currencies\Infrastructure\Repository\CurrencyapiRepositoryFake;
 use Hoyvoy\Currencies\Application\Update\UpdateRateConversionCurrenciesCommand;
 use Hoyvoy\Currencies\Domain\Interface\CurrencyRateConversionRepositoryInterface;
@@ -31,8 +32,11 @@ class UpdateRateConversionCurrenciesCommandHandlerTest extends TestCase
         $currencies = $this->getCurrencies($eurCurrency, $usdCurrency);
         $currencyRepository->method('findAll')->willReturn($currencies);
 
+        $eventBus = $this->createMock(EventBus::class);
+        $eventBus->expects(self::once())->method('publish');
+
         $command = new UpdateRateConversionCurrenciesCommand();
-        $service = new CurrencyRateConversionUpdater(new CurrencyapiRepositoryFake(), $currencyRepository);
+        $service = new CurrencyRateUpdater(new CurrencyapiRepositoryFake(), $currencyRepository, $eventBus);
         $handler = new UpdateRateConversionCurrenciesCommandHandler($service);
 
         $handler->__invoke($command);

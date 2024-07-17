@@ -23,6 +23,11 @@ class RegisterBindingsServiceProvider extends ServiceProvider
                 $this->app->singleton($key, $value);
             }
         }
+
+        $this->app->tag(
+            SendEmailUpdateCurrenciesSubscriber::class,
+            'domain_event_subscriber'
+        );
     }
 
     /**
