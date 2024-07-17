@@ -1,6 +1,6 @@
 <?php
 
-namespace Hoyvoy\Currencies\Infrastructure\Repository;
+namespace Hoyvoy\Currencies\Infrastructure\CurrencyRate;
 
 use GuzzleHttp\Client;
 use Hoyvoy\Currencies\Domain\Entity\CurrencyRateConversion;
